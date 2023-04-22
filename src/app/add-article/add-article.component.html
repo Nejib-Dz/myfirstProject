@@ -1,0 +1,51 @@
+
+<form #n="ngForm" (ngSubmit)="submit(n)">
+
+  <div ngModelGroup="article" #article="ngModelGroup">
+   <!--  <div class="alert alert-danger" *ngIf="article.touched && !article.valid">
+      <p>article is required</p>
+    </div>
+     -->
+
+  <div class="form-group">
+    <label for="title">title</label>
+        <input required minlength="8" ngModel type="text" name="title" #title="ngModel" id="" (change)="log(title)" class="form-control">
+    <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
+      <span *ngIf="title?.errors?.['required']">title is required</span>
+      <span *ngIf="title?.errors?.['minlength']">title should is minlength {{title.errors?.['minlength'].requiredLength}} caracter</span>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea required ngModel name="content" #content="ngModel" (change)="log(content)" class="form-control" id="" cols="30" rows="10"></textarea>
+    <div class="alert alert-danger" *ngIf="content.touched && !content.valid">
+      <span>content is required</span>
+    </div>
+  </div>
+<hr>
+  <button class="btn btn-primary"
+[disabled]="!n.valid">Save</button>
+
+<hr>
+<!--  <div class="form-grop">
+  <label >category</label>
+  <select ngModel name="category" class="form-control" >
+    <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+  </select>
+</div>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" ngModel name="isSubscribed">Subscribe tou our newsletter
+  </label>
+</div>
+<div class="radio">
+  <label *ngFor="let category of categories">
+    <input type="radio" ngModel name="catg" [value]="category.id">{{category.name}}
+  </label>
+</div>  <p>
+  {{n.value | json}}
+</p>-->
+</div>
+</form>
